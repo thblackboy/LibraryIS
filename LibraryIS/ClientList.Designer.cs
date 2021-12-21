@@ -1,7 +1,7 @@
 ﻿
 namespace LibraryIS
 {
-    partial class DelEmployer
+    partial class ClientList
     {
         /// <summary>
         /// Required designer variable.
@@ -29,17 +29,14 @@ namespace LibraryIS
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.searchfio = new System.Windows.Forms.TextBox();
-            this.clear = new System.Windows.Forms.Button();
-            this.search = new System.Windows.Forms.Button();
             this.searchid = new System.Windows.Forms.Button();
             this.findid = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.deleteemployer = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.search = new System.Windows.Forms.Button();
+            this.searchfio = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,9 +47,72 @@ namespace LibraryIS
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // searchid
+            // 
+            this.searchid.AutoSize = true;
+            this.searchid.Location = new System.Drawing.Point(487, 31);
+            this.searchid.Name = "searchid";
+            this.searchid.Size = new System.Drawing.Size(87, 23);
+            this.searchid.TabIndex = 39;
+            this.searchid.Text = "Искать";
+            this.searchid.UseVisualStyleBackColor = true;
+            this.searchid.Click += new System.EventHandler(this.searchid_Click);
+            // 
+            // findid
+            // 
+            this.findid.Location = new System.Drawing.Point(309, 33);
+            this.findid.Name = "findid";
+            this.findid.Size = new System.Drawing.Size(172, 20);
+            this.findid.TabIndex = 38;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(226, 36);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(77, 13);
+            this.label8.TabIndex = 37;
+            this.label8.Text = "Поиск по ИД:";
+            // 
+            // search
+            // 
+            this.search.AutoSize = true;
+            this.search.Location = new System.Drawing.Point(914, 31);
+            this.search.Name = "search";
+            this.search.Size = new System.Drawing.Size(87, 23);
+            this.search.TabIndex = 36;
+            this.search.Text = "Искать";
+            this.search.UseVisualStyleBackColor = true;
+            this.search.Click += new System.EventHandler(this.search_Click);
+            // 
+            // searchfio
+            // 
+            this.searchfio.Location = new System.Drawing.Point(729, 33);
+            this.searchfio.Name = "searchfio";
+            this.searchfio.Size = new System.Drawing.Size(172, 20);
+            this.searchfio.TabIndex = 35;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(636, 36);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(87, 13);
+            this.label11.TabIndex = 34;
+            this.label11.Text = "Поиск по ФИО:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(12, 58);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(101, 13);
+            this.label10.TabIndex = 33;
+            this.label10.Text = "Список читателей:";
             // 
             // dataGridView1
             // 
@@ -71,110 +131,14 @@ namespace LibraryIS
             this.Column6,
             this.Column7,
             this.Column8,
-            this.Column10,
-            this.Column9});
-            this.dataGridView1.Location = new System.Drawing.Point(15, 105);
+            this.Column10});
+            this.dataGridView1.Location = new System.Drawing.Point(12, 74);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1315, 332);
-            this.dataGridView1.TabIndex = 23;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(12, 79);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(114, 13);
-            this.label10.TabIndex = 24;
-            this.label10.Text = "Список сотрудников:";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(586, 79);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(87, 13);
-            this.label11.TabIndex = 25;
-            this.label11.Text = "Поиск по ФИО:";
-            // 
-            // searchfio
-            // 
-            this.searchfio.Location = new System.Drawing.Point(679, 76);
-            this.searchfio.Name = "searchfio";
-            this.searchfio.Size = new System.Drawing.Size(172, 20);
-            this.searchfio.TabIndex = 26;
-            // 
-            // clear
-            // 
-            this.clear.AutoSize = true;
-            this.clear.Location = new System.Drawing.Point(957, 74);
-            this.clear.Name = "clear";
-            this.clear.Size = new System.Drawing.Size(87, 23);
-            this.clear.TabIndex = 28;
-            this.clear.Text = "Сброс поиска";
-            this.clear.UseVisualStyleBackColor = true;
-            this.clear.Click += new System.EventHandler(this.clear_Click);
-            // 
-            // search
-            // 
-            this.search.AutoSize = true;
-            this.search.Location = new System.Drawing.Point(864, 74);
-            this.search.Name = "search";
-            this.search.Size = new System.Drawing.Size(87, 23);
-            this.search.TabIndex = 27;
-            this.search.Text = "Искать";
-            this.search.UseVisualStyleBackColor = true;
-            this.search.Click += new System.EventHandler(this.search_Click);
-            // 
-            // searchid
-            // 
-            this.searchid.AutoSize = true;
-            this.searchid.Location = new System.Drawing.Point(469, 74);
-            this.searchid.Name = "searchid";
-            this.searchid.Size = new System.Drawing.Size(87, 23);
-            this.searchid.TabIndex = 34;
-            this.searchid.Text = "Искать";
-            this.searchid.UseVisualStyleBackColor = true;
-            this.searchid.Click += new System.EventHandler(this.searchid_Click);
-            // 
-            // findid
-            // 
-            this.findid.Location = new System.Drawing.Point(291, 76);
-            this.findid.Name = "findid";
-            this.findid.Size = new System.Drawing.Size(172, 20);
-            this.findid.TabIndex = 33;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(208, 79);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(77, 13);
-            this.label12.TabIndex = 32;
-            this.label12.Text = "Поиск по ИД:";
-            // 
-            // deleteemployer
-            // 
-            this.deleteemployer.AutoSize = true;
-            this.deleteemployer.Location = new System.Drawing.Point(1164, 74);
-            this.deleteemployer.Name = "deleteemployer";
-            this.deleteemployer.Size = new System.Drawing.Size(121, 23);
-            this.deleteemployer.TabIndex = 35;
-            this.deleteemployer.Text = "Удалить сотрудника";
-            this.deleteemployer.UseVisualStyleBackColor = true;
-            this.deleteemployer.Click += new System.EventHandler(this.deleteemployer_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(557, 13);
-            this.label1.TabIndex = 36;
-            this.label1.Text = "Выберите сотрудника, которого хотите удалить из системы, затем нажмите на кнопку " +
-    "удалить сотрудника.";
+            this.dataGridView1.Size = new System.Drawing.Size(1192, 334);
+            this.dataGridView1.TabIndex = 32;
             // 
             // Column11
             // 
@@ -234,10 +198,10 @@ namespace LibraryIS
             // 
             // Column8
             // 
-            this.Column8.HeaderText = "Должность";
+            this.Column8.HeaderText = "ВУЗ";
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
-            this.Column8.Width = 90;
+            this.Column8.Width = 54;
             // 
             // Column10
             // 
@@ -246,32 +210,32 @@ namespace LibraryIS
             this.Column10.ReadOnly = true;
             this.Column10.Width = 57;
             // 
-            // Column9
+            // clear
             // 
-            this.Column9.HeaderText = "Пароль";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            this.Column9.Width = 70;
+            this.clear.AutoSize = true;
+            this.clear.Location = new System.Drawing.Point(1068, 31);
+            this.clear.Name = "clear";
+            this.clear.Size = new System.Drawing.Size(87, 23);
+            this.clear.TabIndex = 40;
+            this.clear.Text = "Сброс поиска";
+            this.clear.UseVisualStyleBackColor = true;
             // 
-            // DelEmployer
+            // ClientList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1342, 449);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.deleteemployer);
+            this.ClientSize = new System.Drawing.Size(1216, 420);
+            this.Controls.Add(this.clear);
             this.Controls.Add(this.searchid);
             this.Controls.Add(this.findid);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.clear);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.search);
             this.Controls.Add(this.searchfio);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.dataGridView1);
-            this.MaximizeBox = false;
-            this.Name = "DelEmployer";
-            this.Text = "Удалить сотрудника";
+            this.Name = "ClientList";
+            this.Text = "Список читателей";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -279,17 +243,15 @@ namespace LibraryIS
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox searchfio;
-        private System.Windows.Forms.Button clear;
-        private System.Windows.Forms.Button search;
+
         private System.Windows.Forms.Button searchid;
         private System.Windows.Forms.TextBox findid;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button deleteemployer;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button search;
+        private System.Windows.Forms.TextBox searchfio;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
@@ -300,6 +262,6 @@ namespace LibraryIS
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.Button clear;
     }
 }

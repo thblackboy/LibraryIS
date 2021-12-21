@@ -52,7 +52,15 @@ namespace LibraryIS
 
         private void getretlist_Click(object sender, EventArgs e)
         {
-            LoadData(int.Parse(clientid.Text.ToString()));
+            try
+            {
+                int finid = int.Parse(clientid.Text.ToString());
+                LoadData(finid);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Вы ввели неверные данные");
+            }
         }
 
         private void getbook_Click(object sender, EventArgs e)
@@ -64,12 +72,12 @@ namespace LibraryIS
                 {
                     MySqlConnection conn = new MySqlConnection(connStr);
                     conn.Open();
-                    MySqlCommand command = new MySqlCommand("UPDATE books SET access = 1 WHERE isbn = ?id", conn);
-                    command.Parameters.Add("?id", MySqlDbType.Int64).Value = isbn;
-                    command.ExecuteNonQuery();
                     MySqlCommand doorder = new MySqlCommand("UPDATE orders SET returned = 1 WHERE id = ?id", conn);
                     doorder.Parameters.Add("?id", MySqlDbType.Int32).Value = id;
                     doorder.ExecuteNonQuery();
+                    MySqlCommand command = new MySqlCommand("UPDATE books SET access = 1 WHERE isbn = ?id", conn);
+                    command.Parameters.Add("?id", MySqlDbType.Int64).Value = isbn;
+                    command.ExecuteNonQuery();
                     MySqlCommand logcmd = new MySqlCommand("INSERT INTO logs VALUES (?uid,?umes,NULL)", conn);
                     logcmd.Parameters.Add("?uid", MySqlDbType.VarChar).Value = userid;
                     logcmd.Parameters.Add("?umes", MySqlDbType.VarChar).Value = String.Format("Принял книгу у читателя:{0}\nisbn: {1}", int.Parse(clientid.Text.ToString()), isbn);
@@ -87,6 +95,12 @@ namespace LibraryIS
                 MessageBox.Show(ex.Message);
                 MessageBox.Show("Ошибка при попытки изменения базы.");
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ClientList form = new ClientList();
+            form.Show();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

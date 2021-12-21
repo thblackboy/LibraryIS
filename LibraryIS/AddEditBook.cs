@@ -230,8 +230,16 @@ namespace LibraryIS
 
         private void search_Click(object sender, EventArgs e)
         {
-   
-            LoadData(searchtitle.Text.ToString());
+            try
+            {
+                string title = searchtitle.Text.ToString();
+                LoadData(title);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Вы ввели неверные данные");
+            }
+            
         }
 
         private void clear_Click(object sender, EventArgs e)
@@ -257,8 +265,16 @@ namespace LibraryIS
 
         private void searchid_Click(object sender, EventArgs e)
         {
-
-            LoadData(Int64.Parse(findid.Text.ToString()));
+            try
+            {
+                long id = Int64.Parse(findid.Text.ToString());
+                LoadData(id);
+            }            
+            catch (Exception ex)
+            {
+                MessageBox.Show("Вы ввели неверные данные");
+            }
+    
         }
 
 

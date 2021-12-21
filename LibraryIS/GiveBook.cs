@@ -108,13 +108,17 @@ namespace LibraryIS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (int.Parse(clientid.Text.ToString()) != 0)
+            try
             {
-                ReturnBookList form = new ReturnBookList(int.Parse(clientid.Text.ToString()));
+                int id = int.Parse(clientid.Text.ToString());
+                ReturnBookList form = new ReturnBookList(id);
                 form.Show();
             }
-            else
+            catch(Exception ex)
+            {
                 MessageBox.Show("Введите ид читателя!");
+            }
+                
             
         }
 
@@ -149,14 +153,14 @@ namespace LibraryIS
                 {
                     MySqlConnection conn = new MySqlConnection(connStr);
                     conn.Open();
-                    MySqlCommand command = new MySqlCommand("UPDATE books SET access = 0 WHERE isbn = ?id", conn);
-                    command.Parameters.Add("?id", MySqlDbType.Int64).Value = isbn;
-                    command.ExecuteNonQuery();
                     MySqlCommand doorder = new MySqlCommand("INSERT INTO orders VALUES(NULL,?client_id,?employer_id,?book_id,NULL,NULL,0)",conn);
                     doorder.Parameters.Add("?client_id", MySqlDbType.Int32).Value = int.Parse(clientid.Text.ToString());
                     doorder.Parameters.Add("?employer_id", MySqlDbType.Int32).Value = userid;
                     doorder.Parameters.Add("?book_id", MySqlDbType.Int64).Value = isbn;
                     doorder.ExecuteNonQuery();
+                    MySqlCommand command = new MySqlCommand("UPDATE books SET access = 0 WHERE isbn = ?id", conn);
+                    command.Parameters.Add("?id", MySqlDbType.Int64).Value = isbn;
+                    command.ExecuteNonQuery();
                     MySqlCommand logcmd = new MySqlCommand("INSERT INTO logs VALUES (?uid,?umes,NULL)", conn);
                     logcmd.Parameters.Add("?uid", MySqlDbType.VarChar).Value = userid;
                     logcmd.Parameters.Add("?umes", MySqlDbType.VarChar).Value = String.Format("Выдал книгу читателю:{0}\nisbn: {1}", int.Parse(clientid.Text.ToString()),isbn);
@@ -174,6 +178,12 @@ namespace LibraryIS
                 MessageBox.Show(ex.Message);
                 MessageBox.Show("Ошибка при попытки изменения базы.");
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ClientList form = new ClientList();
+            form.Show();
         }
     }
 }

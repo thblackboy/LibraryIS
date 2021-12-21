@@ -6,21 +6,16 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LibraryIS
 {
-    public partial class DelEmployer : Form
+    public partial class ClientList : Form
     {
-        int id;
-       
         string connStr = "server=31.31.198.106;user=u1546798_default;database=u1546798_library;password=3VfnqzT5Ul6aiNU1;charset=utf8;";
-        int userid;
-        public DelEmployer(int userid)
+        public ClientList()
         {
-            this.userid = userid;
             InitializeComponent();
             LoadData();
         }
@@ -29,12 +24,12 @@ namespace LibraryIS
         {
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();
-            MySqlCommand getList = new MySqlCommand("SELECT employees.id,fullname,pass_num,pass_exp,homenum,phonenum,town,address,posts.title,email,password FROM employees JOIN posts ON posts.id = employees.post_id", conn);
+            MySqlCommand getList = new MySqlCommand("SELECT * FROM clients", conn);
             MySqlDataReader reader = getList.ExecuteReader();
             List<String[]> dataList = new List<string[]>();
             while (reader.Read())
             {
-                dataList.Add(new string[11]);
+                dataList.Add(new string[10]);
                 dataList[dataList.Count - 1][0] = reader[0].ToString();
                 dataList[dataList.Count - 1][1] = reader[1].ToString();
                 dataList[dataList.Count - 1][2] = reader[2].ToString();
@@ -45,10 +40,9 @@ namespace LibraryIS
                 dataList[dataList.Count - 1][7] = reader[7].ToString();
                 dataList[dataList.Count - 1][8] = reader[8].ToString();
                 dataList[dataList.Count - 1][9] = reader[9].ToString();
-                dataList[dataList.Count - 1][10] = reader[10].ToString();
             }
             reader.Close();
-            conn.Close(); 
+            conn.Close();
             dataGridView1.Rows.Clear();
             dataGridView1.Refresh();
             foreach (string[] s in dataList)
@@ -60,13 +54,13 @@ namespace LibraryIS
         {
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();
-            MySqlCommand getList = new MySqlCommand("SELECT employees.id,fullname,pass_num,pass_exp,homenum,phonenum,town,address,posts.title,email,password FROM employees JOIN posts ON posts.id = employees.post_id WHERE fullname = @fio", conn);
+            MySqlCommand getList = new MySqlCommand("SELECT id,fullname,pass_num,pass_exp,homenum,phonenum,town,address,vuz,email FROM clients WHERE fullname = @fio", conn);
             getList.Parameters.Add("@fio", MySqlDbType.VarChar).Value = fio;
             MySqlDataReader reader = getList.ExecuteReader();
             List<String[]> dataList = new List<string[]>();
             while (reader.Read())
             {
-                dataList.Add(new string[11]);
+                dataList.Add(new string[10]);
                 dataList[dataList.Count - 1][0] = reader[0].ToString();
                 dataList[dataList.Count - 1][1] = reader[1].ToString();
                 dataList[dataList.Count - 1][2] = reader[2].ToString();
@@ -77,7 +71,6 @@ namespace LibraryIS
                 dataList[dataList.Count - 1][7] = reader[7].ToString();
                 dataList[dataList.Count - 1][8] = reader[8].ToString();
                 dataList[dataList.Count - 1][9] = reader[9].ToString();
-                dataList[dataList.Count - 1][10] = reader[10].ToString();
             }
             reader.Close();
             conn.Close();
@@ -92,7 +85,7 @@ namespace LibraryIS
         {
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();
-            MySqlCommand getList = new MySqlCommand("SELECT employees.id,fullname,pass_num,pass_exp,homenum,phonenum,town,address,posts.title,email,password FROM employees JOIN posts ON posts.id = employees.post_id WHERE employees.id = @id", conn);
+            MySqlCommand getList = new MySqlCommand("SELECT id,fullname,pass_num,pass_exp,homenum,phonenum,town,address,vuz,email FROM clients WHERE id = @id", conn);
             getList.Parameters.Add("@id", MySqlDbType.Int32).Value = findid;
             MySqlDataReader reader = getList.ExecuteReader();
             List<String[]> dataList = new List<string[]>();
@@ -109,7 +102,6 @@ namespace LibraryIS
                 dataList[dataList.Count - 1][7] = reader[7].ToString();
                 dataList[dataList.Count - 1][8] = reader[8].ToString();
                 dataList[dataList.Count - 1][9] = reader[9].ToString();
-                dataList[dataList.Count - 1][10] = reader[10].ToString();
             }
             reader.Close();
             conn.Close();
@@ -120,13 +112,17 @@ namespace LibraryIS
 
         }
 
-
-
         private void search_Click(object sender, EventArgs e)
         {
-            dataGridView1.Rows.Clear();
-            dataGridView1.Refresh();
-            LoadData(searchfio.Text.ToString());
+            try
+            {
+                string fio = searchfio.Text.ToString();
+                LoadData(fio);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Вы ввели неверные данные");
+            }
         }
 
         private void clear_Click(object sender, EventArgs e)
@@ -136,14 +132,6 @@ namespace LibraryIS
             LoadData();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int index = e.RowIndex;
-            DataGridViewRow selectedRow = dataGridView1.Rows[index];
-            id = int.Parse(selectedRow.Cells[0].Value.ToString());
-            
-        }
-
         private void searchid_Click(object sender, EventArgs e)
         {
             try
@@ -151,44 +139,11 @@ namespace LibraryIS
                 int finid = int.Parse(findid.Text.ToString());
                 LoadData(finid);
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
                 MessageBox.Show("Вы ввели неверные данные");
             }
-
-        }
-
-        private void deleteemployer_Click(object sender, EventArgs e)
-        {
-            try
-            {
-
-                if (id != 0)
-                {
-                    MySqlConnection conn = new MySqlConnection(connStr);
-                    conn.Open();
-                    MySqlCommand command = new MySqlCommand("DELETE FROM employees WHERE id = ?id", conn);
-                    command.Parameters.Add("?id", MySqlDbType.VarChar).Value = id;
-                    command.ExecuteNonQuery();
-                    MySqlCommand logcmd = new MySqlCommand("INSERT INTO logs VALUES (?uid,?umes,NULL)", conn);
-                    logcmd.Parameters.Add("?uid", MySqlDbType.VarChar).Value = userid;
-                    logcmd.Parameters.Add("?umes", MySqlDbType.VarChar).Value = String.Format("Удалил сотрудника с id: {0}", id);
-                    logcmd.ExecuteNonQuery();
-                    conn.Close();
-                    MessageBox.Show(String.Format("Сотрудник с id:{0} удален из базы.", id));
-                    id = 0;
-                    dataGridView1.Rows.Clear();
-                    dataGridView1.Refresh();
-                    LoadData();
-                }
-                else
-                    MessageBox.Show("Вы не выбрали сотрудника");
-            }
-            catch (MySql.Data.MySqlClient.MySqlException ex)
-            {
-                MessageBox.Show(ex.Message);
-                MessageBox.Show("Ошибка при попытки изменения базы.");
-            }
+            
         }
     }
 }

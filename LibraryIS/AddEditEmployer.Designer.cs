@@ -51,6 +51,15 @@ namespace LibraryIS
             this.email = new System.Windows.Forms.TextBox();
             this.editemployer = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.searchfio = new System.Windows.Forms.TextBox();
+            this.clear = new System.Windows.Forms.Button();
+            this.search = new System.Windows.Forms.Button();
+            this.searchid = new System.Windows.Forms.Button();
+            this.findid = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.post = new System.Windows.Forms.ComboBox();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,15 +71,6 @@ namespace LibraryIS
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.searchfio = new System.Windows.Forms.TextBox();
-            this.clear = new System.Windows.Forms.Button();
-            this.search = new System.Windows.Forms.Button();
-            this.searchid = new System.Windows.Forms.Button();
-            this.findid = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.post = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -276,83 +276,6 @@ namespace LibraryIS
             this.dataGridView1.TabIndex = 23;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // Column11
-            // 
-            this.Column11.HeaderText = "ИД";
-            this.Column11.Name = "Column11";
-            this.Column11.ReadOnly = true;
-            this.Column11.Width = 49;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "ФИО";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 59;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Серия и номер паспорта";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 143;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Дата истекания паспорта";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 150;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Стационарный номер";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 129;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Мобильный номер";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 115;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Город проживания";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Width = 116;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Адрес проживания";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.Width = 117;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Должность";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            this.Column8.Width = 90;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "Пароль";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            this.Column9.Width = 70;
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "Email";
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            this.Column10.Width = 57;
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -435,6 +358,83 @@ namespace LibraryIS
             this.post.Size = new System.Drawing.Size(121, 21);
             this.post.TabIndex = 35;
             // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "ИД";
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            this.Column11.Width = 49;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "ФИО";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 59;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Серия и номер паспорта";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 143;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Дата истекания паспорта";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 150;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Стационарный номер";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 129;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Мобильный номер";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 115;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Город проживания";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Width = 116;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Адрес проживания";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Width = 117;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Должность";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Width = 90;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Email";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            this.Column9.Width = 57;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Пароль";
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            this.Column10.Width = 70;
+            // 
             // AddEditEmployer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -504,6 +504,15 @@ namespace LibraryIS
         private System.Windows.Forms.TextBox email;
         private System.Windows.Forms.Button editemployer;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox searchfio;
+        private System.Windows.Forms.Button clear;
+        private System.Windows.Forms.Button search;
+        private System.Windows.Forms.Button searchid;
+        private System.Windows.Forms.TextBox findid;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox post;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
@@ -515,14 +524,5 @@ namespace LibraryIS
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox searchfio;
-        private System.Windows.Forms.Button clear;
-        private System.Windows.Forms.Button search;
-        private System.Windows.Forms.Button searchid;
-        private System.Windows.Forms.TextBox findid;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ComboBox post;
     }
 }

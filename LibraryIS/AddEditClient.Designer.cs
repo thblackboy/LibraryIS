@@ -339,9 +339,9 @@ namespace LibraryIS
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(12, 146);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(114, 13);
+            this.label10.Size = new System.Drawing.Size(101, 13);
             this.label10.TabIndex = 24;
-            this.label10.Text = "Список сотрудников:";
+            this.label10.Text = "Список читателей:";
             // 
             // label11
             // 

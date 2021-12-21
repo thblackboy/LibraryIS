@@ -254,9 +254,16 @@ namespace LibraryIS
 
         private void searchid_Click(object sender, EventArgs e)
         {
-            dataGridView1.Rows.Clear();
-            dataGridView1.Refresh();
-            LoadData(int.Parse(findid.Text.ToString()));
+            try
+            {
+                int finid = int.Parse(findid.Text.ToString());
+                LoadData(finid);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Вы ввели неверные данные");
+            }
+
         }
     }
 }
