@@ -172,6 +172,13 @@ namespace LibraryIS
                     conn.Close();
                     MessageBox.Show(mes);
                     LoadData();
+                    isbn.Text = "";
+                    title.Text = "";
+                    genre.Text = "";
+                    edition.Text = "";
+                    author.Text = "";
+                    edition_year.Text = "";
+                    pags.Text = "";
 
                 }
             }
@@ -212,6 +219,13 @@ namespace LibraryIS
                     MessageBox.Show("Данные о книге изменены");
                     id = 0;
                     LoadData();
+                    isbn.Text = "";
+                    title.Text = "";
+                    genre.Text = "";
+                    edition.Text = "";
+                    author.Text = "";
+                    edition_year.Text = "";
+                    pags.Text = "";
 
 
                 }

@@ -156,7 +156,14 @@ namespace LibraryIS
                     conn.Close();
                     MessageBox.Show(mes);
                     LoadData();
-
+                    fullname.Text = "";
+                    pass_num.Text = "";
+                    homenum.Text = "";
+                    phonenum.Text = "";
+                    town.Text = "";
+                    address.Text = "";
+                    vuz.Text = "";
+                    email.Text = "";
                 }
             }
             catch(MySql.Data.MySqlClient.MySqlException ex)
@@ -206,6 +213,14 @@ namespace LibraryIS
                         MessageBox.Show("Данные о читателе изменены");
                         id = 0;
                         LoadData();
+                        fullname.Text = "";
+                        pass_num.Text = "";
+                        homenum.Text = "";
+                        phonenum.Text = "";
+                        town.Text = "";
+                        address.Text = "";
+                        vuz.Text = "";
+                        email.Text = "";
 
                     }
                 }

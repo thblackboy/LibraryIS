@@ -97,6 +97,8 @@ namespace LibraryIS
                     MessageBox.Show("Данные о должности изменены");
                     id = 0;
                     LoadData();
+                    title.Text = "";
+                    salary.Text = "";
 
 
                 }

@@ -92,6 +92,7 @@ namespace LibraryIS
                 conn.Close();
                 MessageBox.Show(mes);
                 LoadData();
+                title.Text = "";
 
 
             }
@@ -125,6 +126,7 @@ namespace LibraryIS
                     MessageBox.Show("Данные о жанре изменены");
                     id = 0;
                     LoadData();
+                    title.Text = "";
 
 
                 }

@@ -94,6 +94,8 @@ namespace LibraryIS
                 conn.Close();
                 MessageBox.Show(mes);
                 LoadData();
+                title.Text = "";
+                place.Text = "";
 
 
             }
@@ -128,6 +130,8 @@ namespace LibraryIS
                     MessageBox.Show("Данные об извательствах изменены");
                     id = 0;
                     LoadData();
+                    title.Text = "";
+                    place.Text = "";
 
 
                 }

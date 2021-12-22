@@ -25,17 +25,19 @@ namespace LibraryIS
         {
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();
-            MySqlCommand getList = new MySqlCommand("SELECT orders.id,employees.fullname,books.title,date_give FROM orders JOIN employees ON employees.id = orders.employer_id JOIN books ON books.isbn = orders.book_id WHERE returned = 0 AND client_id = @clientid", conn);
+            MySqlCommand getList = new MySqlCommand("SELECT orders.id,books.title,orders.book_id,employees.fullname,date_give FROM orders JOIN employees ON employees.id = orders.employer_id JOIN books ON books.isbn = orders.book_id WHERE returned = 0 AND client_id = @clientid", conn);
             getList.Parameters.Add("@clientid", MySqlDbType.VarChar).Value = clientid;
             MySqlDataReader reader = getList.ExecuteReader();
             List<String[]> dataList = new List<string[]>();
             while (reader.Read())
             {
-                dataList.Add(new string[4]);
+                dataList.Add(new string[5]);
                 dataList[dataList.Count - 1][0] = reader[0].ToString();
                 dataList[dataList.Count - 1][1] = reader[1].ToString();
                 dataList[dataList.Count - 1][2] = reader[2].ToString();
                 dataList[dataList.Count - 1][3] = reader[3].ToString();
+                dataList[dataList.Count - 1][4] = reader[4].ToString();
+
             }
             reader.Close();
             conn.Close();

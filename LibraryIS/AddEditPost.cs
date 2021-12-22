@@ -102,6 +102,9 @@ namespace LibraryIS
                 conn.Close();
                 MessageBox.Show(mes);
                 LoadData();
+                title.Text = "";
+                salary.Text = "";
+                access_level.Text = "";
 
 
             }
@@ -141,6 +144,9 @@ namespace LibraryIS
                     MessageBox.Show("Данные о должности изменены");
                     id = 0;
                     LoadData();
+                    title.Text = "";
+                    salary.Text = "";
+                    access_level.Text = "";
 
 
                 }

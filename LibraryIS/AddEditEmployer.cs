@@ -180,6 +180,15 @@ namespace LibraryIS
                         conn.Close();
                         MessageBox.Show(mes);
                         LoadData();
+                        fullname.Text = "";
+                        pass_num.Text = "";
+                        homenum.Text = "";
+                        phonenum.Text = "";
+                        town.Text = "";
+                        address.Text = "";
+                        password.Text = "";
+                        email.Text = "";
+                        post.SelectedIndex = -1;
                     }
                 }
             }
@@ -235,6 +244,15 @@ namespace LibraryIS
                             MessageBox.Show("Данные о сотруднике изменены");
                             id = 0;
                             LoadData();
+                            fullname.Text = "";
+                            pass_num.Text = "";
+                            homenum.Text = "";
+                            phonenum.Text = "";
+                            town.Text = "";
+                            address.Text = "";
+                            password.Text = "";
+                            email.Text = "";
+                            post.SelectedIndex = -1;
                         }
                     }
                 }
